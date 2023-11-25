@@ -5,7 +5,13 @@ export default {
         "./src/**/*.{js,ts,jsx,tsx}",
       ],    
   theme: {
-    extend: {},
+    extend: {
+      fontFamily:{
+        Manrope: "'Manrope', sans-serif",
+        Playpen:"'Playpen Sans', cursive",
+        Fell:"'IM Fell English SC', serif"
+      }
+    },
   },
   plugins: [require("daisyui")],
 }
