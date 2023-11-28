@@ -11,6 +11,7 @@ import Profile from '../Pages/Profile/Profile';
 import Offer from "../Pages/Offer/Offer";
 import Dashboard from '../Pages/Dashboard/Dashboard';
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
         },
         {
           path: 'blogs',
-          element: <Blogs></Blogs>
+          element: <PrivateRoute><Blogs></Blogs></PrivateRoute>
         },
         {
           path:'aboutUs' ,
