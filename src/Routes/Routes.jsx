@@ -10,11 +10,13 @@ import Register from '../Pages/Register/Register';
 import Profile from '../Pages/Profile/Profile';
 import Offer from "../Pages/Offer/Offer";
 import Dashboard from '../Pages/Dashboard/Dashboard';
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
     {
       path: "/",
       element: <MainLayout></MainLayout>,
+      errorElement:<ErrorPage></ErrorPage>,
       children:[
         //normal user routes
         {
@@ -58,6 +60,7 @@ const router = createBrowserRouter([
     {
       path:'dashboard',
       element: <Dashboard></Dashboard>,
+      errorElement:<ErrorPage></ErrorPage>,
       children:[]
     }
   ]);
