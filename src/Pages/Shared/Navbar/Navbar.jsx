@@ -22,10 +22,9 @@ const Navbar = () => {
     </>
 
     const profileNav = <>
-        <NavLink to='/profile' className={({ isActive })=>isActive ? 'btn btn-primary btn-sm normal-case' : 'btn btn-ghost btn-sm normal-case'}>Profile</NavLink>
+        <NavLink to='/wishList' className={({ isActive })=>isActive ? 'btn btn-primary btn-sm normal-case' : 'btn btn-ghost btn-sm normal-case'}>My Wishlist</NavLink>
         <NavLink to='/dashboard' className={({ isActive })=>isActive ? 'btn btn-primary btn-sm normal-case' : 'btn btn-ghost btn-sm normal-case'}>Dashboard</NavLink>
         <NavLink to='/offer' className={({ isActive })=>isActive ? 'btn btn-primary btn-sm normal-case' : 'btn btn-ghost btn-sm normal-case'}>Offer Announcements</NavLink>
-        {/* <NavLink onClick={handleLogOut} className={({ isActive })=>isActive ? 'btn btn-primary btn-sm normal-case' : 'btn btn-ghost btn-sm normal-case'}>LogOut</NavLink> */}
         <NavLink onClick={handleLogOut} className="btn btn-ghost btn-sm normal-case">LogOut</NavLink>
     </>
 

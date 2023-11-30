@@ -5,8 +5,9 @@ import OverView from './Overview/OverView';
 import OurPackage from './OurPackage/OurPackage';
 import MeetOur from './MeetOur/MeetOur';
 import SectionTitle from '../../../Components/SectionTitle/SectionTitle';
+import { Link } from 'react-router-dom';
 
-const TourismAndTravelGuideSection = () => {
+const TourismAndTravelGuideSection = ({popularDatas,dataLength,setDataLength}) => {
 
     const [tabIndex, setTabIndex] = useState(0);
 
@@ -26,7 +27,8 @@ const TourismAndTravelGuideSection = () => {
                         <OverView></OverView>
                     </TabPanel>
                     <TabPanel>
-                        <OurPackage></OurPackage>
+                        <OurPackage popularDatas={popularDatas} dataLength={dataLength} setDataLength={setDataLength}>
+                        </OurPackage>
                     </TabPanel>
                     <TabPanel>
                         <MeetOur></MeetOur>

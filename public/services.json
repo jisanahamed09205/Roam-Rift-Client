@@ -1,0 +1,33 @@
+[
+    {
+      "img": "https://live.staticflickr.com/65535/53363375317_771df4e78f_z.jpg",
+      "tour_type": "Hiking",
+      "title": "Explore the Vibrant Cityscape",
+      "price": 75.00
+    },
+    {
+      "img": "https://live.staticflickr.com/65535/53364577734_9a42e75132_z.jpg",
+      "tour_type": "Sports",
+      "title": "Journey Through Time",
+      "price": 90.00
+    },
+    {
+      "img": "https://live.staticflickr.com/65535/53363375322_79962e1426_z.jpg",
+      "tour_type": "Walking",
+      "title": "Conquer the Wilderness",
+      "price": 120.00
+    },
+    {
+      "img": "https://live.staticflickr.com/65535/53364262001_2d60d7a8e2.jpg",
+      "tour_type": "WildLife",
+      "title": "Dive into Local Traditions",
+      "price": 85.00
+    },
+    {
+      "img": "https://live.staticflickr.com/65535/53363375322_79962e1426_z.jpg",
+      "tour_type": "Air Rides",
+      "title": "Savor Local Delicacies",
+      "price": 60.00
+    }
+  ]
+  

@@ -7,11 +7,11 @@ import AboutUs from '../Pages/AboutUs/AboutUs';
 import ContactUs from '../Pages/ContactUs/ContactUs';
 import Login from '../Pages/Login/Login';
 import Register from '../Pages/Register/Register';
-import Profile from '../Pages/Profile/Profile';
 import Offer from "../Pages/Offer/Offer";
 import Dashboard from '../Pages/Dashboard/Dashboard';
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
+import WishList from "../Pages/WishList/WishList";
 
 const router = createBrowserRouter([
     {
@@ -22,7 +22,8 @@ const router = createBrowserRouter([
         //normal user routes
         {
             path: '/',
-            element: <Home></Home>
+            element: <Home></Home>,
+            loader: () => fetch('https://roam-rift-server.vercel.app/services')
         },
         {
           path:'community',
@@ -49,8 +50,8 @@ const router = createBrowserRouter([
           element:<Register></Register>
         },
         {
-          path: 'profile',
-          element: <Profile></Profile>
+          path: 'wishList',
+          element: <WishList></WishList>
         },
         {
           path: 'offer',

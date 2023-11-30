@@ -2,12 +2,12 @@ import { Helmet } from "react-helmet-async";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Login.css'
 import swal from 'sweetalert';
-import { useContext } from "react";
-import { AuthContext } from "../../Provider/AuthProvider";
+import useAuth from '../../Hook/useAuth';
+
 
 const Login = () => {
 
-    const {login,signInWithGoogle} = useContext(AuthContext);
+    const {login,signInWithGoogle} = useAuth();
 
     const location = useLocation();
 
