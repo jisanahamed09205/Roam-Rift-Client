@@ -3,12 +3,13 @@ import PackageCard from "./PackageCard";
 
 const OurPackage = ({popularDatas,dataLength,setDataLength}) => {
 
+
     
 
     return (
         <div>
             <div>
-                <div className='grid grid-cols-1 md:grid-cols-2'>
+                <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
                     {
                         popularDatas.slice(0, dataLength).map((popularData) => <PackageCard key={popularData.tour_type} popularData={popularData}></PackageCard>)
                     }

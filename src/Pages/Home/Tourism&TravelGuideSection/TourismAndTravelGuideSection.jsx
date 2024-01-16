@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 
 const TourismAndTravelGuideSection = ({popularDatas,dataLength,setDataLength}) => {
 
-    const [tabIndex, setTabIndex] = useState(0);
+    const [tabIndex, setTabIndex] = useState(1);
 
     return (
         <div className=" max-w-[1200px] mx-auto mb-5">

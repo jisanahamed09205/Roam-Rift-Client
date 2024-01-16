@@ -13,30 +13,29 @@ const Navbar = () => {
     }
 
     const navLinks = <>
-        <NavLink to='/' className={({ isActive })=>isActive ? 'btn btn-primary btn-sm normal-case' : 'btn btn-ghost btn-sm normal-case'}>Home</NavLink>
-        <NavLink to='/community' className={({ isActive })=>isActive ? 'btn btn-primary btn-sm normal-case' : 'btn btn-ghost btn-sm normal-case'}>Community</NavLink>
-        <NavLink to='/blogs' className={({ isActive })=>isActive ? 'btn btn-primary btn-sm normal-case' : 'btn btn-ghost btn-sm normal-case'}>Blogs</NavLink>
-        <NavLink to='/aboutUs' className={({ isActive })=>isActive ? 'btn btn-primary btn-sm normal-case' : 'btn btn-ghost btn-sm normal-case'}>About Us</NavLink>
-        <NavLink to='/contactUs' className={({ isActive })=>isActive ? 'btn btn-primary btn-sm normal-case' : 'btn btn-ghost btn-sm normal-case'}>Contact Us</NavLink>
+        <NavLink to='/' className={({ isActive })=>isActive ? 'btn bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-gray-900 via-gray-100 to-gray-900 btn-sm normal-case' : 'btn btn-ghost btn-sm normal-case'}>Home</NavLink>
+        <NavLink to='/community' className={({ isActive })=>isActive ? 'btn bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-gray-900 via-gray-100 to-gray-900 btn-sm normal-case' : 'btn btn-ghost btn-sm normal-case'}>Community</NavLink>
+        <NavLink to='/blogs' className={({ isActive })=>isActive ? 'btn bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-gray-900 via-gray-100 to-gray-900 btn-sm normal-case' : 'btn btn-ghost btn-sm normal-case'}>Blogs</NavLink>
+        <NavLink to='/aboutUs' className={({ isActive })=>isActive ? 'btn bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-gray-900 via-gray-100 to-gray-900 btn-sm normal-case' : 'btn btn-ghost btn-sm normal-case'}>About Us</NavLink>
+        <NavLink to='/contactUs' className={({ isActive })=>isActive ? 'btn bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-gray-900 via-gray-100 to-gray-900 btn-sm normal-case' : 'btn btn-ghost btn-sm normal-case'}>Contact Us</NavLink>
         
     </>
 
     const profileNav = <>
-        <NavLink to='/wishList' className={({ isActive })=>isActive ? 'btn btn-primary btn-sm normal-case' : 'btn btn-ghost btn-sm normal-case'}>My Wishlist</NavLink>
-        <NavLink to='/dashboard' className={({ isActive })=>isActive ? 'btn btn-primary btn-sm normal-case' : 'btn btn-ghost btn-sm normal-case'}>Dashboard</NavLink>
-        <NavLink to='/offer' className={({ isActive })=>isActive ? 'btn btn-primary btn-sm normal-case' : 'btn btn-ghost btn-sm normal-case'}>Offer Announcements</NavLink>
+        <NavLink to='/dashboard' className={({ isActive })=>isActive ? 'btn bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-gray-900 via-gray-100 to-gray-900 btn-sm normal-case' : 'btn btn-ghost btn-sm normal-case'}>Dashboard</NavLink>
+        <NavLink to='/offer' className={({ isActive })=>isActive ? 'btn bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-gray-900 via-gray-100 to-gray-900 btn-sm normal-case' : 'btn btn-ghost btn-sm normal-case'}>Offer Announcements</NavLink>
         <NavLink onClick={handleLogOut} className="btn btn-ghost btn-sm normal-case">LogOut</NavLink>
     </>
 
     return (
-        <div>
-            <div className="navbar bg-blue-300">
+        <div className="">
+            <div className="navbar backdrop-blur-3xl fixed w-full z-10">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
-                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-blue-300 rounded-box w-52">
+                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-blue-100 rounded-box w-52">
                             {navLinks}
                         </ul>
                     </div>
@@ -66,7 +65,7 @@ const Navbar = () => {
                                         <img alt="" src={user?.photoURL} />
                                     </div>
                                 </label>
-                                <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-blue-300 rounded-box w-52 justify-start">
+                                <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-blue-100 rounded-box w-52 justify-start">
                                     <div className="text-center my-5">
                                         <p>{user?.displayName}</p>
                                         <p><small>{user?.email}</small></p>
@@ -77,7 +76,7 @@ const Navbar = () => {
                         </div>
                     </div> :
                     <div className="navbar-end">
-                        <NavLink to='/login' className={({ isActive })=>isActive ? 'btn btn-primary btn-sm normal-case' : 'btn btn-ghost btn-sm normal-case'}>Login</NavLink>
+                        <NavLink to='/login' className={({ isActive })=>isActive ? 'btn bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-gray-900 via-gray-100 to-gray-900 btn-sm normal-case' : 'btn btn-ghost btn-sm normal-case'}>Login</NavLink>
                     </div>
                 }
             </div>
