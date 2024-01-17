@@ -24,7 +24,7 @@ import { GiParachute } from "react-icons/gi";
 
 export const categories = [
   {
-    label: 'Air Rides',
+    label: 'AirRides',
     icon: GiParachute,
     description: 'This property is brand new and luxurious!',
   },

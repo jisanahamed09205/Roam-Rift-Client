@@ -4,7 +4,7 @@ import TourismAndTravelGuideSection from "../Tourism&TravelGuideSection/TourismA
 import TourType from "../TourType/TourType";
 import TouristStory from "../TouristStory/TouristStory";
 import { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useSearchParams } from "react-router-dom";
 
 const Home = () => {
 
@@ -16,6 +16,10 @@ const Home = () => {
     //         .then(res=> res.json())
     //         .then(data=>setDataLength(data))
     // },[])
+    
+    // const {params,setParams} =useSearchParams()
+    // const category = params.get('tourtype')
+    // console.log(category);
 
     return (
         <div>

@@ -48,7 +48,7 @@ const TourType = () => {
                     </div>
                 </button>
             </div> */}
-            <div className="pt-4 flex items-center justify-between overflow-x-auto text-center">
+            <div className="pt-4 flex items-center justify-between overflow-x-auto">
                 {categories.map((category)=> <TourTypeBox key={category.label} label={category.label} icon={category.icon}></TourTypeBox>)}
             </div>
         </div>
