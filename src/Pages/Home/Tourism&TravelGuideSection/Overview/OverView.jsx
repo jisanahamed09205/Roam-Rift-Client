@@ -1,7 +1,7 @@
 
 const OverView = () => {
     return (
-        <div className="grid md:grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div>
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/PtWeqZsuzpE?si=AVe8AF2zzjr9gKXu" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 <p className="text-xl font-semibold text-center mt-3">Our London Tour Package</p>

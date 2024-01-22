@@ -12,6 +12,8 @@ import Dashboard from '../Pages/Dashboard/Dashboard';
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
 import WishList from "../Pages/WishList/WishList";
+import PackagesPage from "../Pages/Home/TourType/PackagesPage/PackagesPage";
+import AllPackages from "../Pages/Home/AllPackages/AllPackages";
 
 const router = createBrowserRouter([
     {
@@ -23,11 +25,10 @@ const router = createBrowserRouter([
         {
             path: '/',
             element: <Home></Home>,
-            loader: () => fetch('https://roam-rift-server.vercel.app/services')
         },
         {
           path:'community',
-          element: <Community></Community>
+          element: <PrivateRoute><Community></Community></PrivateRoute>
         },
         {
           path: 'blogs',
@@ -35,7 +36,7 @@ const router = createBrowserRouter([
         },
         {
           path:'aboutUs' ,
-          element: <AboutUs></AboutUs>
+          element: <PrivateRoute><AboutUs></AboutUs></PrivateRoute>
         },
         {
           path:'contactUs',
@@ -56,6 +57,17 @@ const router = createBrowserRouter([
         {
           path: 'offer',
           element: <Offer></Offer>
+        },
+        {
+          path:'packagesPage/:tourType',
+          element: <PackagesPage></PackagesPage>,
+          // loader: ({params}) => fetch(`./services.json/${params.name}`)
+          // loader: () => fetch('https://roam-rift-server.vercel.app/services')
+          // loader: () => fetch(`./services.json`)
+        },
+        {
+          path:'allPackages',
+          element: <AllPackages></AllPackages>
         }
       ]
     },

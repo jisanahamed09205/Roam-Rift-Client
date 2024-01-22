@@ -76,7 +76,7 @@ const Navbar = () => {
                         </div>
                     </div> :
                     <div className="navbar-end">
-                        <NavLink to='/login' className={({ isActive })=>isActive ? 'btn bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-gray-900 via-gray-100 to-gray-900 btn-sm normal-case' : 'btn btn-ghost btn-sm normal-case'}>Login</NavLink>
+                        <NavLink to='/login' className={({ isActive })=>isActive ? 'btn bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-gray-900 via-gray-100 to-gray-900 btn-sm normal-case' : 'btn btn-sm normal-case  font-semibold text-xl'}>Login</NavLink>
                     </div>
                 }
             </div>
