@@ -1,11 +1,9 @@
 import { useEffect, useState,useRef } from 'react';
-// import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import OverView from './Overview/OverView';
 import OurPackage from './OurPackage/OurPackage';
 import MeetOur from './MeetOur/MeetOur';
 import SectionTitle from '../../../Components/SectionTitle/SectionTitle';
-// import { Link } from 'react-router-dom';
 
 
 ////selected code

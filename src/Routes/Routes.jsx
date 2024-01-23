@@ -14,6 +14,7 @@ import PrivateRoute from "./PrivateRoute";
 import WishList from "../Pages/WishList/WishList";
 import PackagesPage from "../Pages/Home/TourType/PackagesPage/PackagesPage";
 import AllPackages from "../Pages/Home/AllPackages/AllPackages";
+import PackageDetail from "../Pages/PackageDetail/PackageDetail";
 
 const router = createBrowserRouter([
     {
@@ -68,6 +69,10 @@ const router = createBrowserRouter([
         {
           path:'allPackages',
           element: <AllPackages></AllPackages>
+        },
+        {
+          path:'packageDetail/:id',
+          element: <PrivateRoute><PackageDetail></PackageDetail></PrivateRoute>
         }
       ]
     },

@@ -3,31 +3,79 @@
       "img": "https://live.staticflickr.com/65535/53363375317_771df4e78f_z.jpg",
       "tour_type": "Hiking",
       "title": "Explore the Vibrant Cityscape",
-      "price": 75.00
+      "price": 75.00,
+      "location": "Banff National Park, Canada",
+      "tourPlan": [
+        "Explore mountain trails",
+        "Camping in the wilderness",
+        "Scenic viewpoints",
+        "Nature photography",
+        "Bonfire and stargazing"
+      ],
+      "description": "Banff National Park, nestled in the Canadian Rockies. A pristine natural paradise with stunning mountain landscapes, glaciers, and abundant wildlife."
     },
     {
       "img": "https://live.staticflickr.com/65535/53364577734_9a42e75132_z.jpg",
       "tour_type": "Sports",
       "title": "Journey Through Time",
-      "price": 90.00
+      "price": 90.00,
+      "location": "Amazon Rainforest, Brazil",
+      "tourPlan": [
+        "Participate in local sports events",
+        "Visit sports arenas",
+        "Try adventure sports",
+        "Explore sports museums",
+        "Relaxation and team-building activities"
+      ],
+      "description": "The Amazon Rainforest, the lungs of the Earth, located in Brazil. Home to diverse flora and fauna, with lush greenery and winding rivers."
+
     },
     {
       "img": "https://live.staticflickr.com/65535/53363375322_79962e1426_z.jpg",
       "tour_type": "Walking",
       "title": "Conquer the Wilderness",
-      "price": 120.00
+      "price": 120.00,
+      "location": "Plitvice Lakes National Park, Croatia",
+      "tourPlan": [
+        "City walking tours",
+        "Historical landmarks",
+        "Cultural neighborhoods",
+        "Botanical gardens",
+        "Coastal walks"
+      ],
+      "description": "Plitvice Lakes National Park, a breathtaking natural wonder in Croatia. Known for its cascading waterfalls, crystal-clear lakes, and lush greenery."
+
     },
     {
       "img": "https://live.staticflickr.com/65535/53364262001_2d60d7a8e2.jpg",
       "tour_type": "WildLife",
       "title": "Dive into Local Traditions",
-      "price": 85.00
+      "price": 85.00,
+      "location": "Yellowstone National Park, USA",
+      "tourPlan": [
+        "Safari adventure",
+        "Bird watching",
+        "Visit wildlife reserves",
+        "Educational talks",
+        "Nighttime wildlife observation"
+      ],
+      "description": "Yellowstone National Park, the first national park in the world. Famous for geothermal features, wildlife, and the iconic Old Faithful geyser."
+
     },
     {
       "img": "https://live.staticflickr.com/65535/53363375322_79962e1426_z.jpg",
       "tour_type": "Air Rides",
       "title": "Savor Local Delicacies",
-      "price": 60.00
+      "price": 60.00,
+      "location": "Great Barrier Reef, Australia",
+      "tourPlan": [
+        "Hot air balloon ride",
+        "Helicopter tour",
+        "Skydiving adventure",
+        "Scenic flight over landscapes",
+        "Paragliding experience"
+      ],
+      "description": "The Great Barrier Reef, the world's largest coral reef system off the coast of Australia. A UNESCO World Heritage Site, with vibrant marine life and coral formations."
     }
   ]
   

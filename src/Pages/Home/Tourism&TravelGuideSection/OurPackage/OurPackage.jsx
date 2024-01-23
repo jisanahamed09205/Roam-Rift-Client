@@ -19,7 +19,7 @@ const OurPackage = () => {
             <div>
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
                     {
-                        visiblePackages.map((popularData) => <PackageCard key={popularData.tour_type} popularData={popularData}></PackageCard>)
+                        visiblePackages.map((popularData) => <PackageCard key={popularData._id} popularData={popularData}></PackageCard>)
                     }
                 </div>
             </div>
