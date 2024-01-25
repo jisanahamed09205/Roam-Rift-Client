@@ -80,7 +80,7 @@ const PackageDetail = () => {
                 </div>
                 <div className="w-4/5 md:w-full mx-auto">
                     <h2 className="text-2xl font-bold mb-4">Tour Plan</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 w-3/6 md:w-full mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 w-4/5 md:w-full mx-auto">
                         {singlePackage?.tourPlan.map((day, index) => (
                             <div key={index} className="p-4 border rounded-md shadow-md bg-yellow-200">
                                 <h3 className="text-lg font-semibold mb-2">Day {index + 1}</h3>

@@ -16,7 +16,7 @@ import AllPackages from "../Pages/Home/AllPackages/AllPackages";
 import PackageDetail from "../Pages/PackageDetail/PackageDetail";
 import GuideBio from '../Components/GuideBio/GuideBio';
 import DashboardLayout from "../Layout/DashboardLayout";
-import AddPackage from "../Pages/Dashboard/Tour Guide/AddPackage";
+import AddPackage from "../Pages/Dashboard/Admin/AddPackage";
 import MyAssignedTours from "../Pages/Dashboard/Tour Guide/MyAssignedTours";
 
 const router = createBrowserRouter([
