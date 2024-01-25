@@ -1,8 +1,7 @@
 import { createContext, useEffect, useState } from "react";
-// import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
-import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
-import axios from "axios";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import app from '../firebase/firebase.config';
+import { removeToken } from "../api/auth";
 
 export const AuthContext = createContext(null)
 
@@ -24,7 +23,8 @@ const AuthProvider = ({children}) => {
     const update = (name,photo)=>{
         setLoading(true)
         return updateProfile(auth.currentUser,{
-            displayName:name, photoURL:photo
+            displayName:name, 
+            photoURL:photo
         })
     }
 
@@ -38,33 +38,22 @@ const AuthProvider = ({children}) => {
         return signInWithPopup(auth,googleProvider)
     }
 
-    const logOut = () =>{
+    const logOut = async() =>{
         setLoading(true)
+        await removeToken()
         return signOut(auth)
     }
 
+    const resetPassword = email => {
+        setLoading(true)
+        return sendPasswordResetEmail(auth, email)
+      }
+
     useEffect(()=>{
         const unSubscribe =  onAuthStateChanged(auth,currentUser =>{
-            // console.log('user in the auth state changed',currentUser);
-            // const userEmail = currentUser?.email || user.email;
             setUser(currentUser);
+            console.log('CurrentUser-->', currentUser)
             setLoading(false)
-            //if user exist
-            if(currentUser){
-                const loggedUser = {email:currentUser?.email}
-                axios.post('https://repair-revivalists-server.vercel.app/jwt',loggedUser, { withCredentials:true })
-                .then(res=>{
-                    console.log('token response',res.data);
-                })
-            }
-            // else{
-            //     axios.post('https://repair-revivalists-server.vercel.app/logout',loggedUser, {
-            //         withCredentials: true
-            //     })
-            //     .then(res=>{
-            //         console.log(res.data);
-            //     })
-            // }
         })
         return () =>{
             unSubscribe();
@@ -72,7 +61,7 @@ const AuthProvider = ({children}) => {
     },[])
 
     const authInfo ={
-        user,createUser,logOut,login,loading,signInWithGoogle,update
+        user,createUser,logOut,login,loading,signInWithGoogle,update,resetPassword
     }
 
     return (

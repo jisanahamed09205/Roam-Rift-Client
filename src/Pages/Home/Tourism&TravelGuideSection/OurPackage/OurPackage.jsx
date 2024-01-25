@@ -9,7 +9,7 @@ const OurPackage = () => {
           .then((res) => res.json())
           .then((data) => setPackages(data));
       }, []);
-      const visiblePackages = packages.slice(0, 4);
+      const visiblePackages = packages.slice(0, 3);
 
 
     
@@ -17,7 +17,7 @@ const OurPackage = () => {
     return (
         <div>
             <div>
-                <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
+                <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
                     {
                         visiblePackages.map((popularData) => <PackageCard key={popularData._id} popularData={popularData}></PackageCard>)
                     }

@@ -60,7 +60,7 @@ const TourismAndTravelGuideSection = () => {
   }, [activeTab]);
 
   return (
-    <div className="max-w-[1200px] mx-auto mb-5 px-4 md:px-6 lg:px-8">
+    <div className="max-w-[1200px] mx-auto mb-5">
       <SectionTitle subHeading="Find yours" heading="Tourism and Travel Guide"></SectionTitle>
       <div className="sm:w-11/12 lg:w-full mx-auto">
         <div
@@ -78,7 +78,7 @@ const TourismAndTravelGuideSection = () => {
             />
           ))}
         </div>
-        <div className="mt-6 sm:rounded-3xl bg-purple-50">
+        <div className="mt-6 sm:rounded-3xl bg-purple-50 w-full">
           {[1, 2, 3].map((tabId) => (
             <div
               key={tabId}

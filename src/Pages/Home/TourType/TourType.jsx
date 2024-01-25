@@ -42,13 +42,13 @@ const TourType = () => {
             <div className="pt-4 flex items-center justify-between overflow-x-auto">
                 {tourTypeData.map((tourType) => (
                     <Link
-                        key={tourType._id}
-                        to={`/packagesPage/${tourType.label}`}
+                        key={tourType.label}
+                        to={`/packagesPage/${tourType?.label}`}
                     >
                         <div className="flex items-center justify-center gap-5 px-5">
                             <button className="btn btn-circle btn-outline md:w-20 md:h-20 text-center">
                                 <div>
-                                    {tourType.icon}
+                                    {tourType?.icon}
                                     <p className="uppercase text-[10px] md:text-base font-medium">{tourType.label}</p>
                                 </div>
                             </button>

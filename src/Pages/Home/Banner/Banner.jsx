@@ -3,8 +3,7 @@ import { Typewriter } from "react-simple-typewriter";
 const Banner = () => {
     return (
         <div>
-            {/* <div className="bg-[url('https://live.staticflickr.com/65535/53312867597_fcc619c59b_z.jpg')] hero"> */}
-            <div className="bg-[url('/banner-1.1.jpg')] hero">
+            <div className="bg-[url('https://live.staticflickr.com/65535/53482696711_8f870ac19a_z.jpg')] hero">
             <div className="hero-overlay bg-opacity-55"></div>
                 <div className="bg-gradient-to-b from-violet-600/[.15] via-transparent">
                     <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-24 space-y-8">

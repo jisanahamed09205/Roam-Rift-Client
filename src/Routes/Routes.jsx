@@ -15,6 +15,7 @@ import WishList from "../Pages/WishList/WishList";
 import PackagesPage from "../Pages/Home/TourType/PackagesPage/PackagesPage";
 import AllPackages from "../Pages/Home/AllPackages/AllPackages";
 import PackageDetail from "../Pages/PackageDetail/PackageDetail";
+import GuideBio from '../Components/GuideBio/GuideBio';
 
 const router = createBrowserRouter([
     {
@@ -73,6 +74,12 @@ const router = createBrowserRouter([
         {
           path:'packageDetail/:id',
           element: <PrivateRoute><PackageDetail></PackageDetail></PrivateRoute>
+        },
+        {
+          path:'guideBio/:id',
+          element: <GuideBio></GuideBio>,
+          // loader: ({params}) => fetch(`./tourGuid.json/guideBio/${params.id}`)
+          loader: ({params}) => fetch(`/tourGuid.json/guideBio/${params.id}`)
         }
       ]
     },

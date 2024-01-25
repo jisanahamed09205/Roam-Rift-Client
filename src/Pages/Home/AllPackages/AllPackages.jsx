@@ -12,7 +12,7 @@ const AllPackages = () => {
 
     return (
         <div>
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
+            <div className='max-w-[1000px] mx-auto mb-5 grid grid-cols-1 md:grid-cols-2 gap-5'>
                 {
                     packages.map((allData) => <AllPackCard key={allData.tour_type} allData={allData}></AllPackCard>)
                 }

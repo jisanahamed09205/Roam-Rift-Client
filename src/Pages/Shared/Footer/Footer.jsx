@@ -2,7 +2,7 @@
 const Footer = () => {
     return (
         <div>
-            <footer className="footer p-10 bg-base-300 text-black">
+            <footer className="footer p-10 bg-base-200 text-black">
                 <aside>
                     <a href="/" className="flex items-center font-bold normal-case text-2xl"><img width="200" height="200" src='/logo2.2.png' alt="" /></a>
                 </aside>
@@ -26,7 +26,7 @@ const Footer = () => {
                     </div>
                 </nav>
             </footer>
-            <footer className="footer footer-center p-4 bg-base-300 text-black">
+            <footer className="footer footer-center p-4 bg-base-200 text-black">
                 <aside>
                     <p>Copyright © 2023 - All right reserved by Roam Rift Ltd</p>
                 </aside>

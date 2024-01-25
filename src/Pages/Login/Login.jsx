@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Login.css'
 import swal from 'sweetalert';
 import useAuth from '../../Hook/useAuth';
+import { getToken, saveUser } from "../../api/auth";
 
 
 const Login = () => {
@@ -13,54 +14,47 @@ const Login = () => {
 
     const navigate = useNavigate();
 
-    const handleLogin = e =>{
+    const handleLogin = async (e) =>{
         e.preventDefault();
-        const email = e.target.email.value;
-        const password = e.target.password.value;
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
         // console.log(email,password);
 
-        //login user
-        login(email,password)
-        .then(result=>{
-            const loggedInUser = result.user
-            // console.log(loggedInUser);
-            // const user = {email};
-
-
-            swal("Successful!", "Your Login Success!", "success")
-
-
-            //NEEd to UNCOMMET
+         // 3.O
+         try {
+            //2. create a new user
+            const result = await login(email,password)
+            console.log(result);
+            //4. save user data in database
+            const dbResponse = await saveUser(result?.user)
+            console.log(dbResponse);
+            //5. get tokens
+            await getToken(result?.user?.email)
             navigate(location?.state ? location.state : '/');
-
-
-
-            //get access token
-            // axios.post('https://repair-revivalists-server.vercel.app/jwt',user, {withCredentials:true})
-            // .then(res=>{
-            //     console.log(res.data);
-            // })
-
-        })
-
-        .catch(error=>{
-            console.error(error);
-            swal("Invalid!", "Check Your Email or Password!", "warning");
-        })
+            swal("Success!", "Login Successful!", "successful");
+        } catch (err) {
+            console.log(err);
+            swal("Error!", "Login Error!", "error");
+        }
     }
-    const handleGoogleSignIn = () =>{
-        signInWithGoogle()
-        .then(result=>{
-            // console.log(result.user);
-            swal("Successful!", "Your Login Success!", "success")
-
-
+    const handleGoogleSignIn =async () =>{
+        // 3.O
+        try {
+            //2. create a new user
+            const result = await signInWithGoogle()
+            console.log(result);
+            //4. save user data in database
+            const dbResponse = await saveUser(result?.user)
+            console.log(dbResponse);
+            //5. get tokens
+            await getToken(result?.user?.email)
             navigate(location?.state ? location.state : '/');
-
-        })
-        .catch(error=>{
-            console.error(error)
-        })
+            swal("Success!", "Login Successful!", "successful");
+        } catch (err) {
+            console.log(err);
+            swal("Error!", "Login Error!", "error");
+        }
     }
 
     return (

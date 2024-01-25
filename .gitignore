@@ -14,6 +14,7 @@ dist-ssr
 public/review.json
 public/services.json
 public/tourType.json
+public/tourGuid.json
 
 # Editor directories and files
 .vscode/*
