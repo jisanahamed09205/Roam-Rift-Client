@@ -1,14 +1,13 @@
 import { Helmet } from "react-helmet-async";
 
-const Dashboard = () => {
+const MyAssignedTours = () => {
     return (
         <div>
             <Helmet>
-                <title>Roam Rift || Dashboard</title>
+                <title>My Assigned Tours | Dashboard</title>
             </Helmet>
-            Dashboard
         </div>
     );
 };
 
-export default Dashboard;
+export default MyAssignedTours;

@@ -8,7 +8,6 @@ import ContactUs from '../Pages/ContactUs/ContactUs';
 import Login from '../Pages/Login/Login';
 import Register from '../Pages/Register/Register';
 import Offer from "../Pages/Offer/Offer";
-import Dashboard from '../Pages/Dashboard/Dashboard';
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
 import WishList from "../Pages/WishList/WishList";
@@ -16,6 +15,9 @@ import PackagesPage from "../Pages/Home/TourType/PackagesPage/PackagesPage";
 import AllPackages from "../Pages/Home/AllPackages/AllPackages";
 import PackageDetail from "../Pages/PackageDetail/PackageDetail";
 import GuideBio from '../Components/GuideBio/GuideBio';
+import DashboardLayout from "../Layout/DashboardLayout";
+import AddPackage from "../Pages/Dashboard/Tour Guide/AddPackage";
+import MyAssignedTours from "../Pages/Dashboard/Tour Guide/MyAssignedTours";
 
 const router = createBrowserRouter([
     {
@@ -84,10 +86,19 @@ const router = createBrowserRouter([
       ]
     },
     {
-      path:'dashboard',
-      element: <Dashboard></Dashboard>,
-      errorElement:<ErrorPage></ErrorPage>,
-      children:[]
+      path:'/dashboard',
+      element: <DashboardLayout></DashboardLayout>,
+      // errorElement:<ErrorPage></ErrorPage>,
+      children:[
+        {
+          path:'add-package',
+          element: <AddPackage></AddPackage>
+        },
+        {
+          path:'assigned-tours',
+          element: <MyAssignedTours></MyAssignedTours>
+        }
+      ]
     }
   ]);
 

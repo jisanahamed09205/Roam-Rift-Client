@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider";
+import Logo from "../../../Shared/Logo";
 
 const Navbar = () => {
 
@@ -39,9 +40,7 @@ const Navbar = () => {
                             {navLinks}
                         </ul>
                     </div>
-                    <a href="/" className=" normal-case text-xl">
-                        <img src="/logo2.3.png" alt="" />
-                    </a>
+                    <Logo></Logo>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">

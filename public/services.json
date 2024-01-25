@@ -5,7 +5,7 @@
       "title": "Explore the Vibrant Cityscape",
       "price": 75.00,
       "location": "Banff National Park, Canada",
-      "host":{
+
         "service_provider_name":"Michael Wang",
         "service_provider_img":"https://live.staticflickr.com/65535/53313659774_7374c53b31_m.jpg",
         "service_provider_email":"michael.wang@example.com"
@@ -25,7 +25,7 @@
       "title": "Journey Through Time",
       "price": 90.00,
       "location": "Amazon Rainforest, Brazil",
-      "host":{
+
         "service_provider_name":"Sophia Rodriguez",
         "service_provider_img":"https://live.staticflickr.com/65535/53312436112_bb6b6a5ecb_m.jpg",
         "service_provider_email":"sophia.rodriguez@example.com"
@@ -46,7 +46,7 @@
       "title": "Conquer the Wilderness",
       "price": 120.00,
       "location": "Plitvice Lakes National Park, Croatia",
-      "host":{
+
         "service_provider_name":"Alex Johnson",
         "service_provider_img":"https://live.staticflickr.com/65535/53313546373_e2a80866f2_m.jpg",
         "service_provider_email":"alex.johnson@example.com"
@@ -67,7 +67,7 @@
       "title": "Dive into Local Traditions",
       "price": 85.00,
       "location": "Yellowstone National Park, USA",
-      "host":{
+
         "service_provider_name":"Emily Smith",
         "service_provider_img":"https://live.staticflickr.com/65535/53313301206_c208697e7f_m.jpg",
         "service_provider_email":"emily.smith@example.com"
@@ -88,11 +88,9 @@
       "title": "Savor Local Delicacies",
       "price": 60.00,
       "location": "Great Barrier Reef, Australia",
-      "host": {
-        "service_provider_name": "John Doe",
-        "service_provider_img": "https://live.staticflickr.com/65535/53313301221_6ede253474_m.jpg",
-        "service_provider_email":"john.doe@example.com"
-      },
+      "service_provider_name": "John Doe",
+      "service_provider_img": "https://live.staticflickr.com/65535/53313301221_6ede253474_m.jpg",
+      "service_provider_email":"john.doe@example.com",
       "tourPlan": [
         "Hot air balloon ride",
         "Helicopter tour",
