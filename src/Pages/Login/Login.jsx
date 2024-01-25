@@ -13,6 +13,7 @@ const Login = () => {
     const location = useLocation();
 
     const navigate = useNavigate();
+    const from = location?.state?.from?.pathname || '/'
 
     const handleLogin = async (e) =>{
         e.preventDefault();
@@ -31,7 +32,7 @@ const Login = () => {
             console.log(dbResponse);
             //5. get tokens
             await getToken(result?.user?.email)
-            navigate(location?.state ? location.state : '/');
+            navigate(from,{replace:true});
             swal("Success!", "Login Successful!", "successful");
         } catch (err) {
             console.log(err);
@@ -49,7 +50,7 @@ const Login = () => {
             console.log(dbResponse);
             //5. get tokens
             await getToken(result?.user?.email)
-            navigate(location?.state ? location.state : '/');
+            navigate(from,{replace:true});
             swal("Success!", "Login Successful!", "successful");
         } catch (err) {
             console.log(err);

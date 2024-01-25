@@ -16,6 +16,7 @@ const Register = () => {
     const location = useLocation();
 
     const navigate = useNavigate();
+    const from = location?.state?.from?.pathname || '/'
 
     const [signUpError, setSignUpError] = useState('');
 
@@ -46,7 +47,7 @@ const Register = () => {
             console.log(dbResponse);
             //5. get tokens
             await getToken(result?.user?.email)
-            navigate(location?.state ? location.state : '/');
+            navigate(from,{replace:true});
             swal("Success!", "Sign Up Successful!", "successful");
         }catch(err){
             console.log(err);
@@ -85,7 +86,7 @@ const Register = () => {
             console.log(dbResponse);
             //5. get tokens
             await getToken(result?.user?.email)
-            navigate(location?.state ? location.state : '/');
+            navigate(from,{replace:true});
             swal("Success!", "Sign Up Successful!", "successful");
         } catch (err) {
             console.log(err);
