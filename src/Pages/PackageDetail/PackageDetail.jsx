@@ -3,12 +3,15 @@ import { Helmet } from "react-helmet-async";
 import { useParams } from "react-router-dom";
 import Header from "../../Components/PackDetails/Header";
 import PackInfo from "./PackInfo";
-import useAuth from "../../Hook/useAuth";
-import Swal from "sweetalert2";
 import MeetOur from "../Home/Tourism&TravelGuideSection/MeetOur/MeetOur";
+import BookingModal from "../../Components/Modal/BookingModal";
 
 const PackageDetail = () => {
-    const {user} = useAuth();
+
+    let [isOpen, setIsOpen] = useState(false)
+    const closeModal = () =>{
+        setIsOpen(false)
+    }
 
     const {id} = useParams()
     const [singlePackage, setSinglePackage] = useState({});
@@ -28,16 +31,18 @@ const PackageDetail = () => {
     if(loading) return <div className="flex justify-center items-center text-center min-h-[calc(100vh-370px)]">Loading...</div>
 
 
-    const handlePurchase=(e)=>{
-        e.preventDefault();
-        const form = e.target;
-        const name = form.name.value;
-        const userEmail = user?.email;
-        const date = form.date.value;
-        const area = form.area.value;
-        const providerEmail = form.providerEmail.value;
-        const price = form.price.value;
-        const imgURL = form.imgURL.value;
+    // const handlePurchase=(e)=>{
+        // e.preventDefault();
+        // const form = e.target;
+        // const name = form.name.value;
+        // const userEmail = user?.email;
+        // const date = form.date.value;
+        // const area = form.area.value;
+        // const providerEmail = form.providerEmail.value;
+        // const price = form.price.value;
+        // const imgURL = form.imgURL.value;
+
+
         // const booking ={
         //     name,
         //     userEmail,
@@ -48,14 +53,14 @@ const PackageDetail = () => {
         //     imgURL,
         //     service_id: singlePackage?._id
         // }
-        Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Service Purchased Successfully",
-            showConfirmButton: false,
-            timer: 2000
-          });
-    }
+        // Swal.fire({
+        //     position: "top-end",
+        //     icon: "success",
+        //     title: "Service Purchased Successfully",
+        //     showConfirmButton: false,
+        //     timer: 2000
+        //   });
+    // }
 
     return (
         <div className="max-w-[1200px] mx-auto mb-5">
@@ -96,19 +101,19 @@ const PackageDetail = () => {
                     <MeetOur></MeetOur>
                 </div>
                 <div className="flex justify-center mt-4 mb-4">
-                    <button className="bg-slate-700 text-white px-4 py-2 rounded" onClick={() => document.getElementById('my_modal_3').showModal()}>Book This Package
+                    <button onClick={()=>setIsOpen(true)} className="bg-slate-700 text-white px-4 py-2 rounded">Book This Package
                     </button>
-                    <dialog id="my_modal_3" className="modal ">
+                    {/* Modal */}
+                    {/* <dialog id="my_modal_3" className="modal ">
                         <div className="modal-box bg-green-200">
                             <form method="dialog">
-                                {/* if there is a button in form, it will close the modal */}
                                 <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                             </form>
                             <h2 className=" text-3xl text-center">Book This Package</h2>
                             <section className="text-gray-600 body-font relative">
                                 <div className="container px-5 py-5 mx-auto ">
                                     <div className=" mx-auto">
-                                        <form onSubmit={handlePurchase}>
+                                        <form>
                                             <div className="flex flex-wrap -m-2">
                                                 <div className="p-2 w-1/2">
                                                     <div className="relative">
@@ -163,8 +168,9 @@ const PackageDetail = () => {
                                 </div>
                             </section>
                         </div>
-                    </dialog>
+                    </dialog> */}
                 </div>
+                <BookingModal closeModal={closeModal} isOpen={isOpen} singlePackage={singlePackage}></BookingModal>
             </div>
         </div>
     );

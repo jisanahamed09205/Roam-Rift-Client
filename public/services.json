@@ -8,7 +8,10 @@
       "host":{
         "service_provider_name":"Michael Wang",
         "service_provider_img":"https://live.staticflickr.com/65535/53313659774_7374c53b31_m.jpg",
-        "service_provider_email":"michael.wang@example.com"
+        "service_provider_email":"michael.wang@example.com",
+        "phone": "+1 (555) 345-6789",
+        "experience": "7 years of city exploration",
+        "description": "A city enthusiast, Michael has spent 7 years guiding tours through urban landscapes. From historical landmarks to hidden gems, he offers a unique perspective, blending history with modernity."
       },
       "tourPlan": [
         "Explore mountain trails",
@@ -28,7 +31,10 @@
       "host":{
         "service_provider_name":"Sophia Rodriguez",
         "service_provider_img":"https://live.staticflickr.com/65535/53312436112_bb6b6a5ecb_m.jpg",
-        "service_provider_email":"sophia.rodriguez@example.com"
+        "service_provider_email":"sophia.rodriguez@example.com",
+        "phone": "+1 (555) 234-5678",
+        "experience": "12 years of wildlife expeditions",
+        "description": "With over a decade of experience in wildlife expeditions, Sophia is a seasoned guide who shares a deep connection with nature. Her expertise in tracking and observing wildlife ensures a memorable safari experience."
       },
       "tourPlan": [
         "Participate in local sports events",
@@ -49,7 +55,10 @@
       "host":{
         "service_provider_name":"Alex Johnson",
         "service_provider_img":"https://live.staticflickr.com/65535/53313546373_e2a80866f2_m.jpg",
-        "service_provider_email":"alex.johnson@example.com"
+        "service_provider_email":"alex.johnson@example.com",
+        "phone": "+1 (555) 876-5432",
+        "experience": "6 years of cultural tours",
+        "description": "A cultural aficionado, Alex has been sharing his passion for history and local traditions for 6 years. His engaging storytelling brings the past to life, making each tour a journey through time."
       },
       "tourPlan": [
         "City walking tours",
@@ -70,7 +79,10 @@
       "host":{
         "service_provider_name":"Emily Smith",
         "service_provider_img":"https://live.staticflickr.com/65535/53313301206_c208697e7f_m.jpg",
-        "service_provider_email":"emily.smith@example.com"
+        "service_provider_email":"emily.smith@example.com",
+        "phone": "+1 (555) 987-6543",
+        "experience": "10 years of adventure tours",
+        "description": "Adventure seeker and thrill enthusiast, Emily has a decade of experience guiding adrenaline-pumping tours. From rock climbing to zip-lining, she ensures an unforgettable adventure for every traveler."
       },
       "tourPlan": [
         "Safari adventure",
@@ -83,7 +95,7 @@
 
     },
     {
-      "img": "https://live.staticflickr.com/65535/53363375322_79962e1426_z.jpg",
+      "img": "https://live.staticflickr.com/65535/53482998084_2121dc41b1_z.jpg",
       "tour_type": "Air Rides",
       "title": "Savor Local Delicacies",
       "price": 60.00,
@@ -91,7 +103,10 @@
       "host": {
         "service_provider_name": "John Doe",
         "service_provider_img": "https://live.staticflickr.com/65535/53313301221_6ede253474_m.jpg",
-        "service_provider_email":"john.doe@example.com"
+        "service_provider_email":"john.doe@example.com",
+        "phone": "+1 (555) 123-4567",
+        "experience": "8 years of guiding",
+        "description": "Passionate about nature and history, John has been guiding tourists for 8 years. His in-depth knowledge of local flora and fauna makes him the perfect guide for nature enthusiasts."
       },
       "tourPlan": [
         "Hot air balloon ride",

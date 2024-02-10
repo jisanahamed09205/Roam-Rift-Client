@@ -3,7 +3,16 @@
 // import { TbFidgetSpinner } from 'react-icons/tb'
 // import { categories } from '../Categories/categoriesData'
 // import swal from 'sweetalert';
-const AddRoomForm = ({handleAddPackage,user}) => {
+import { TbFidgetSpinner } from 'react-icons/tb';
+
+
+const AddRoomForm = ({
+    handleAddPackage,
+    user,
+    loading= false,
+    handleImgChange,
+    uploadButtonText
+}) => {
     // const handleAddPackage = e =>{
         // e.preventDefault();
         // const form = e.target;
@@ -43,10 +52,27 @@ const AddRoomForm = ({handleAddPackage,user}) => {
         //     }
         // })
     // }
+    const tourTypeData = [
+        { label: 'Air Rides' },
+        {  label: 'Hiking' },
+        {  label: 'Sports' },
+        {  label: 'Walking' },
+        {  label: 'WildLife' },
+        {  label: 'Pools' },
+        {  label: 'Islands' },
+        {  label: 'Lake' },
+        {  label: 'Skiing' },
+        {  label: 'Castles' },
+        {  label: 'Caves' },
+        {  label: 'Camping' },
+        {  label: 'Arctic' },
+        {  label: 'Barns' },
+        {  label: 'Beach' },
+    ];
     return (
-        <div>
+        <div className="bg-green-50">
             <h2 className=" text-3xl text-center py-5">Add Package</h2>
-            <section className="text-gray-600 body-font relative">
+            <section className="text-gray-600 body-font relative ">
                 <div className="container px-5 py-5 mx-auto ">
                     <div className=" mx-auto">
                         <form 
@@ -56,63 +82,15 @@ const AddRoomForm = ({handleAddPackage,user}) => {
                                 <div className="p-2 w-1/2">
                                     <div className="relative">
                                         <label className="leading-7 text-sm text-gray-600">Package Title</label>
-                                        <input required type="text" id="serviceName" name="serviceName" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
-                                    </div>
-                                </div>
-                                <div className="p-2 w-1/2">
-                                    <div className="relative">
-                                        <label className="leading-7 text-sm text-gray-600">Service Provider Email</label>
-                                        <input 
-                                            defaultValue={user?.email}
-                                            type="email" id="phn" name="service_provider_email" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
-                                    </div>
-                                </div>
-                                <div className="p-2 w-1/2">
-                                    <div className="relative">
-                                        <label className="leading-7 text-sm text-gray-600">Service Provider Name</label>
-                                        <input type="text" id="userName"
-                                            defaultValue={user?.displayName} 
-                                            name="userName" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
-                                    </div>
-                                </div>
-                                <div className="p-2 w-1/2">
-                                    <div className="relative">
-                                        <label className="leading-7 text-sm text-gray-600">Service Provider Img</label>
-                                        <input type="text" id="userImg"
-                                            defaultValue={user?.photoURL} 
-                                            name="userImg" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
-                                    </div>
-                                </div>
-                                <div className="p-2 w-1/2">
-                                    <div className="relative">
-                                        <label className="leading-7 text-sm text-gray-600">Location</label>
-                                        <input required type="text" id="" name="area" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
-                                    </div>
-                                </div>
-                                {/* <div className="p-2 w-1/2">
-                                    <div className="relative">
-                                        <label className="leading-7 text-sm text-gray-600">Service Description</label>
-                                        <input required type="text" id="serviceDescription" name="serviceDescription" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
-                                    </div>
-                                </div> */}
-                                <div className="p-2 w-1/2">
-                                    <div className="relative">
-                                        <label className="leading-7 text-sm text-gray-600">Service Provider Description</label>
-                                        <textarea required name="serviceDetails" id="" cols="20" rows="5" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"></textarea>
-                                        {/* <input required type="text" id="serviceDetails" name="serviceDetails" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" /> */}
-                                    </div>
-                                </div>
-                                <div className="p-2 w-1/2">
-                                    <div className="relative">
-                                        <label className="leading-7 text-sm text-gray-600">Price</label>
-                                        <input required type="text" id="" name="price" defaultValue={'$'} className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                        <input required type="text" id="serviceName" name="serviceName" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-2 px-3 leading-8 transition-colors duration-200 ease-in-out" />
                                     </div>
                                 </div>
                                 <div className=' p-2 bg-white w-1/2  m-auto rounded-lg'>
-                                    <div className='file_upload px-5 py-3 relative border-4 border-dotted border-gray-300 rounded-lg'>
+                                    <div className='file_upload px-5 py-2 relative border-4 border-dotted border-gray-300 rounded-lg'>
                                         <div className='flex flex-col w-max mx-auto text-center'>
                                             <label>
                                                 <input
+                                                onChange={(e)=>handleImgChange(e.target.files[0])}
                                                     className='text-sm cursor-pointer w-36 hidden'
                                                     type='file'
                                                     name='image'
@@ -121,16 +99,115 @@ const AddRoomForm = ({handleAddPackage,user}) => {
                                                     hidden
                                                     required
                                                 />
-                                                <div className='bg-rose-500 text-white border border-gray-300 rounded font-semibold cursor-pointer p-1 px-3 hover:bg-rose-500'>
-                                                    Package Image Upload
+                                                <div className='bg-green-600 text-white border border-gray-300 rounded font-semibold cursor-pointer p-1 px-3 hover:bg-green-500'>
+                                                    {uploadButtonText}
                                                 </div>
                                             </label>
                                         </div>
                                     </div>
                                 </div>
-                                <div className="p-2 w-full ">
-                                    <input className="btn btn-primary w-full normal-case" type="submit" value="Add Service" />
+                                <div className='p-2 w-1/2 text-sm'>
+                                    <label htmlFor='category' className='block text-black'>
+                                    Tour Type
+                                    </label>
+                                    <select
+                                        required
+                                        className='w-full px-4 py-3 text-base border-green-300 focus:outline-green-500 rounded-md'
+                                        name='tour_type'
+                                    >
+                                        {tourTypeData.map(category => (
+                                            <option value={category.label} key={category.label}>
+                                                {category.label}
+                                            </option>
+                                        ))}
+                                    </select>
                                 </div>
+                                <div className="p-2 w-1/2">
+                                    <div className="relative">
+                                        <label className="leading-7 text-sm text-gray-600">Tour Plan</label>
+                                        <input required type="text" id="" placeholder="Day-1" name="day1" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-[1px] px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                        <input required type="text" id="" placeholder="Day-2" name="day2" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-[1px] px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                        <input required type="text" id="" placeholder="Day-3" name="day3" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-[1px] px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                        <input required type="text" id="" placeholder="Day-4" name="day4" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-[1px] px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                        <input required type="text" id="" placeholder="Day-5" name="day5" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-[1px] px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                    </div>
+                                </div>
+                                <div className="p-2 w-1/2">
+                                    <div className="relative">
+                                        <label className="leading-7 text-sm text-gray-600">Price</label>
+                                        <input required type="text" id="" name="price" 
+                                        // defaultValue={'$'}
+                                        placeholder='$'
+                                         className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-2 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                    </div>
+                                </div>
+                                <div className="p-2 w-1/2">
+                                    <div className="relative">
+                                        <label className="leading-7 text-sm text-gray-600">Location</label>
+                                        <input required type="text" id="" name="area" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-2 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                    </div>
+                                </div>
+                                <div className="p-2 w-1/2">
+                                    <div className="relative">
+                                        <label className="leading-7 text-sm text-gray-600">Service Provider Email</label>
+                                        <input 
+                                            defaultValue={user?.email}
+                                            type="email" id="phn" name="service_provider_email" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-2 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                    </div>
+                                </div>
+                                <div className="p-2 w-1/2">
+                                    <div className="relative">
+                                        <label className="leading-7 text-sm text-gray-600">Service Provider Name</label>
+                                        <input type="text" id="userName"
+                                            defaultValue={user?.displayName} 
+                                            name="userName" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-2 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                    </div>
+                                </div>
+                                <div className="p-2 w-1/2">
+                                    <div className="relative">
+                                        <label className="leading-7 text-sm text-gray-600">Service Provider Experience</label>
+                                        <input type="text" id="experience" required
+                                        placeholder='7 years of city exploration'
+                                            name="experience" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-2 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                    </div>
+                                </div>
+                                <div className="p-2 w-1/2">
+                                    <div className="relative">
+                                        <label className="leading-7 text-sm text-gray-600">Service Provider Phone</label>
+                                        <input type='text' required id="phone" defaultValue='+88'
+                                            name="phone" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-2 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                    </div>
+                                </div>
+                                <div className="p-2 w-1/2">
+                                    <div className="relative">
+                                        <label className="leading-7 text-sm text-gray-600">Service Provider Img</label>
+                                        <input type="text" id="userImg"
+                                            defaultValue={user?.photoURL} 
+                                            name="userImg" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-2 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                    </div>
+                                </div>
+                                <div className="p-2 w-1/2">
+                                    <div className="relative">
+                                        <label className="leading-7 text-sm text-gray-600">Service Description</label>
+                                        <textarea required name="serviceDetails" id="" cols="10" rows="2" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-2 px-3 leading-8 transition-colors duration-200 ease-in-out"></textarea>
+                                    </div>
+                                </div>
+                                <div className="p-2 w-1/2">
+                                    <div className="relative">
+                                        <label className="leading-7 text-sm text-gray-600">Service Provider Description</label>
+                                        <textarea required name="service_provider_des" id="" cols="10" rows="2" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-2 px-3 leading-8 transition-colors duration-200 ease-in-out"></textarea>
+                                    </div>
+                                </div>
+                                <button
+                                    type='submit'
+                                    className='w-full p-3 mt-5 text-center font-medium text-white transition duration-200 rounded shadow-md bg-green-500'
+                                >
+                                    {loading ? (
+                                        <TbFidgetSpinner className='m-auto animate-spin' size={24} />
+                                    ) : (
+                                        'Add Package'
+                                    )}
+                                </button>
                             </div>
                         </form>
                     </div>

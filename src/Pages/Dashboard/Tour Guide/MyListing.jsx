@@ -1,27 +1,23 @@
-import { useQuery } from "@tanstack/react-query";
-import { Helmet } from "react-helmet-async";
-import useAuth from "../../../Hook/useAuth";
-import { getBookings, getTourGuidBookings } from "../../../api/bookings";
-import TableRow from "../../../Components/Dashboard/TableRow/TableRow";
+import { useEffect, useState } from 'react'
+import { Helmet } from 'react-helmet-async'
+import useAuth from '../../../Hook/useAuth'
+import { getHostPack } from '../../../api/servicePackage'
+import PackDataRow from '../../../Components/Dashboard/TableRow/PackDataRow'
 
-const MyAssignedTours = () => {
-
-    const { user, loading } = useAuth()
-    const { data: bookings = [], isLoading, refetch } = useQuery({
-        queryKey: ['bookings', user?.email],
-        enabled: !loading,
-        // queryFn: async () => await getTourGuidBookings(user?.email)
-        queryFn: async () => await getBookings(user?.email)
-    })
-    console.log(bookings);
-    if (isLoading) return <div className="flex justify-center items-center text-center min-h-[calc(100vh-370px)]">Loading...</div>
-
+const MyListings = () => {
+    const {user} = useAuth()
+    const [packages,setPackages] = useState([])
+    useEffect(()=>{
+        getHostPack(user?.email)
+            .then(data=>setPackages(data))
+    },[user])
     return (
-        <div>
+        <div className='bg-green-50 container'>
             <Helmet>
                 <title>My Assigned Tours | Dashboard</title>
             </Helmet>
-            <div className='container mx-auto px-4 sm:px-8'>
+
+            <div className=' mx-auto px-4 sm:px-8 '>
                 <div className='py-8'>
                     <div className='-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto'>
                         <div className='inline-block min-w-full shadow rounded-lg overflow-hidden'>
@@ -38,7 +34,7 @@ const MyAssignedTours = () => {
                                             scope='col'
                                             className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
                                         >
-                                            Tourist Info
+                                            Location
                                         </th>
                                         <th
                                             scope='col'
@@ -46,23 +42,37 @@ const MyAssignedTours = () => {
                                         >
                                             Price
                                         </th>
+                                        {/* <th
+                                            scope='col'
+                                            className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
+                                        >
+                                            From
+                                        </th> */}
+                                        {/* <th
+                                            scope='col'
+                                            className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
+                                        >
+                                            To
+                                        </th> */}
                                         <th
                                             scope='col'
                                             className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
                                         >
-                                            Date
+                                            Delete
                                         </th>
                                         <th
                                             scope='col'
                                             className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
                                         >
-                                            Action
+                                            Update
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {/* Table row data */}
-                                    {bookings && bookings.map((booking)=> <TableRow key={booking._id} booking={booking}></TableRow>)}
+                                    {/* Room row data */}
+                                    {
+                                        packages.map((pack)=> <PackDataRow key={pack._id} pack={pack}></PackDataRow>)
+                                    }
                                 </tbody>
                             </table>
                         </div>
@@ -70,7 +80,7 @@ const MyAssignedTours = () => {
                 </div>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default MyAssignedTours;
+export default MyListings

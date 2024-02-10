@@ -1,25 +1,30 @@
 import { useState } from 'react'
+import useAuth from '../../../Hook/useAuth'
+
 // Components
 import Logo from '../../../Shared/Logo'
 import MenuItem from './MenuItem'
 import ToggleBtn from './ToggleBtn'
+
 // Icons
 import { GrLogout } from 'react-icons/gr'
-import { FcSettings } from 'react-icons/fc'
 import { AiOutlineBars } from 'react-icons/ai'
-import { CgProfile } from "react-icons/cg";
-import { LuPackagePlus } from "react-icons/lu";
-import { MdCollectionsBookmark } from "react-icons/md";
-import { IoBookmarksOutline } from "react-icons/io5";
-import { MdAssignmentTurnedIn } from "react-icons/md";
+import useRole from '../../../Hook/useRole'
+import AdminMenu from '../../../Components/Dashboard/SideBar/AdminMenu'
+import TourGuidMenu from '../../../Components/Dashboard/SideBar/TourGuidMenu'
+import TouristMenu from '../../../Components/Dashboard/SideBar/TouristMenu'
+import { CgProfile } from 'react-icons/cg'
+
 
 
 
 
 
 const Sidebar = () => {
+  const {logOut} = useAuth()
   const [toggle, setToggle] = useState(false)
   const [isActive, setActive] = useState(false)
+  const [role] = useRole()
 
   //   For guest/host menu item toggle button
   const toggleHandler = event => {
@@ -62,53 +67,27 @@ const Sidebar = () => {
           {/* Nav Items */}
           <div className='flex flex-col justify-between flex-1 mt-6'>
             {/* If a user is host */}
-            <ToggleBtn toggleHandler={toggleHandler} />
+            {role === 'Tour Guide' && <ToggleBtn toggleHandler={toggleHandler} />}
+            {/* Every user */}
+            <MenuItem
+              icon={CgProfile}
+              label='My Profile'
+              address='/dashboard'
+            />
             <nav>
-              <MenuItem
-                icon={CgProfile}
-                label='My Profile'
-                address='/dashboard'
-              />
-              <MenuItem
-                icon={LuPackagePlus}
-                label='Add Package'
-                address='add-package'
-              />
-              <MenuItem
-                icon={MdCollectionsBookmark}
-                label='My Bookings'
-                address='my-bookings'
-              />
-              <MenuItem
-                icon={IoBookmarksOutline}
-                label='My Wishlist'
-                address='my-wishlist'
-              />
-              <MenuItem
-                icon={MdAssignmentTurnedIn}
-                label='My Assigned Tours'
-                address='assigned-tours'
-              />
-              <MenuItem
-                icon={FcSettings}
-                label='Manage Users'
-                address='manage-users'
-              />
-
-              {/* Menu Items */}
+              {/* Admin Menu Items */}
+              {role === 'Tourist' && <TouristMenu/>}
+              {/* Admin Menu Items */}
+              {role === 'Tour Guide' ? toggle? <TourGuidMenu/> : <TouristMenu/> : ''}
+              {/* Admin Menu Items */}
+              {role === 'Admin' && <AdminMenu/>}
             </nav>
           </div>
         </div>
 
         <div>
           <hr />
-
-          <MenuItem
-            icon={FcSettings}
-            label='Profile'
-            address='/dashboard/profile'
-          />
-          <button className='flex w-full items-center px-4 py-2 mt-5 text-gray-600 hover:bg-gray-300   hover:text-gray-700 transition-colors duration-300 transform'>
+          <button onClick={logOut} className='flex w-full items-center px-4 py-2 mt-5 text-gray-600 hover:bg-gray-300   hover:text-gray-700 transition-colors duration-300 transform'>
             <GrLogout className='w-5 h-5' />
 
             <span className='mx-4 font-medium'>Logout</span>

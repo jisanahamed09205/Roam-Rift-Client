@@ -1,15 +1,28 @@
-import { useLoaderData } from "react-router-dom";
+// import { useLoaderData } from "react-router-dom";
+
+import { useEffect, useState } from "react";
+
 
 const GuideBio = () => {
-    const guideData = useLoaderData()
-    console.log(guideData);
+    // const guideData = useLoaderData()
+    // console.log(guideData);
+    const [guideData, setTourGuide] = useState([]);
+    // const [data, setData] = useState([])
+
+    useEffect(() => {
+      fetch("https://roam-rift-server.vercel.app/services")
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          setTourGuide(data)});
+    }, []);
     return (
         <div>
         <div className="bg-white p-8 shadow-md rounded-lg mx-auto max-w-md">
           <div className="flex flex-col items-center justify-center">
             <img
-              src={guideData?.service_provider_img}
-              alt={guideData?.service_provider_name}
+              src={guideData?.host?.service_provider_img}
+              alt={guideData?.host?.service_provider_name}
               className="w-32 h-32 rounded-full mb-4 object-cover"
             />
             <h2 className="text-2xl font-bold mb-2">{guideData?.service_provider_name}</h2>

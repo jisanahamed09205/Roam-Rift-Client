@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../Pages/Shared/Navbar/Navbar";
 import Footer from "../Pages/Shared/Footer/Footer";
+import { motion, useScroll } from "framer-motion";
 
 
 // import React, { useState, useEffect } from 'react';
@@ -46,9 +47,14 @@ const MainLayout = () => {
       simulateInitialLoad();
     }
   }, []);
+  const { scrollYProgress } = useScroll(false);
 
   return (
     <div>
+      <motion.div
+                className="progress-bar"
+                style={{ scaleX: scrollYProgress }}
+            />
       {loading ? (
         // Show a loading spinner while the website is loading
         //className="flex justify-center items-center text-red-600 bg-green"

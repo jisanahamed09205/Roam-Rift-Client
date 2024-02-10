@@ -33,7 +33,7 @@ const Login = () => {
             //5. get tokens
             await getToken(result?.user?.email)
             navigate(from,{replace:true});
-            swal("Success!", "Login Successful!", "successful");
+            swal("Success!", "Login Successful!", "success");
         } catch (err) {
             console.log(err);
             swal("Error!", "Login Error!", "error");
@@ -51,7 +51,7 @@ const Login = () => {
             //5. get tokens
             await getToken(result?.user?.email)
             navigate(from,{replace:true});
-            swal("Success!", "Login Successful!", "successful");
+            swal("Success!", "Login Successful!", "success");
         } catch (err) {
             console.log(err);
             swal("Error!", "Login Error!", "error");

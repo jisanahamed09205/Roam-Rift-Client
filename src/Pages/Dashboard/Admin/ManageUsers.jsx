@@ -1,25 +1,20 @@
 import { useQuery } from "@tanstack/react-query";
 import { Helmet } from "react-helmet-async";
-import useAuth from "../../../Hook/useAuth";
-import { getBookings, getTourGuidBookings } from "../../../api/bookings";
-import TableRow from "../../../Components/Dashboard/TableRow/TableRow";
+import { getAllUsers } from "../../../api/auth";
+import UserDataRow from "../../../Components/Dashboard/TableRow/UserDataRow";
 
-const MyAssignedTours = () => {
+const ManageUsers = () => {
 
-    const { user, loading } = useAuth()
-    const { data: bookings = [], isLoading, refetch } = useQuery({
-        queryKey: ['bookings', user?.email],
-        enabled: !loading,
-        // queryFn: async () => await getTourGuidBookings(user?.email)
-        queryFn: async () => await getBookings(user?.email)
+    const {data: users=[],refetch} = useQuery({
+        queryKey: ['users'],
+        queryFn: async ()=> await getAllUsers(),
     })
-    console.log(bookings);
-    if (isLoading) return <div className="flex justify-center items-center text-center min-h-[calc(100vh-370px)]">Loading...</div>
+    console.log('whole users',users);
 
     return (
         <div>
             <Helmet>
-                <title>My Assigned Tours | Dashboard</title>
+                <title>Manage Users | Dashboard</title>
             </Helmet>
             <div className='container mx-auto px-4 sm:px-8'>
                 <div className='py-8'>
@@ -32,26 +27,21 @@ const MyAssignedTours = () => {
                                             scope='col'
                                             className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
                                         >
-                                            Title
+                                            Email
                                         </th>
                                         <th
                                             scope='col'
                                             className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
                                         >
-                                            Tourist Info
+                                            Role
                                         </th>
                                         <th
                                             scope='col'
                                             className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
                                         >
-                                            Price
+                                            Status
                                         </th>
-                                        <th
-                                            scope='col'
-                                            className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
-                                        >
-                                            Date
-                                        </th>
+
                                         <th
                                             scope='col'
                                             className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
@@ -61,8 +51,8 @@ const MyAssignedTours = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {/* Table row data */}
-                                    {bookings && bookings.map((booking)=> <TableRow key={booking._id} booking={booking}></TableRow>)}
+                                    {/* User data table row */}
+                                    {users && users.map((user)=> <UserDataRow key={user._id} user={user} refetch={refetch}></UserDataRow>)}
                                 </tbody>
                             </table>
                         </div>
@@ -73,4 +63,4 @@ const MyAssignedTours = () => {
     );
 };
 
-export default MyAssignedTours;
+export default ManageUsers;

@@ -1,17 +1,19 @@
-import { Navigate, useLocation } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import './Loading.css'
-import useAuth from "../Hook/useAuth";
+import useRole from "../Hook/useRole";
 
-const PrivateRoute = ({children}) => {
+const TourGuideRoute = ({children}) => {
 
-    const {user,loading} = useAuth();
 
-    const location = useLocation();
-    // console.log(location.pathname);
+    // const [role,loading] = useRole()
+    //TanStackQuery
+    const [role,isLoading] = useRole()
 
-    // const style = { position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)" };
 
-    if(loading){
+
+    // if(loading){
+    //TanStackQuery
+    if(isLoading){
         return <>
             <div>
                 <div className="box-of-star1">
@@ -65,12 +67,11 @@ const PrivateRoute = ({children}) => {
     </>
     }
 
-    if(user){
+    if(role === 'Tour Guide'){
         return children;
     }
 
-    // return <Navigate state={location.pathname} to='/login' replace></Navigate>;
-    return <Navigate to='/login' state={{from:location}} replace='true'></Navigate>;
+    return <Navigate to='/dashboard'></Navigate>;
 };
 
-export default PrivateRoute;
+export default TourGuideRoute;

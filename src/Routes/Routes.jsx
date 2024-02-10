@@ -18,6 +18,12 @@ import GuideBio from '../Components/GuideBio/GuideBio';
 import DashboardLayout from "../Layout/DashboardLayout";
 import AddPackage from "../Pages/Dashboard/Admin/AddPackage";
 import MyAssignedTours from "../Pages/Dashboard/Tour Guide/MyAssignedTours";
+import MyListing from "../Pages/Dashboard/Tour Guide/MyListing";
+import TourGuideRoute from "./TourGuideRoute";
+import AdminRoute from "./AdminRoute";
+import ManageUsers from "../Pages/Dashboard/Admin/ManageUsers";
+import MyProfile from "../Pages/Dashboard/Common/MyProfile";
+import MyBookings from "../Pages/Dashboard/Tourist/MyBookings";
 
 const router = createBrowserRouter([
     {
@@ -55,10 +61,6 @@ const router = createBrowserRouter([
           element:<Register></Register>
         },
         {
-          path: 'wishList',
-          element: <WishList></WishList>
-        },
-        {
           path: 'offer',
           element: <Offer></Offer>
         },
@@ -78,25 +80,74 @@ const router = createBrowserRouter([
           element: <PrivateRoute><PackageDetail></PackageDetail></PrivateRoute>
         },
         {
-          path:'guideBio/:id',
+          path:'guideBio/:email',
           element: <GuideBio></GuideBio>,
           // loader: ({params}) => fetch(`./tourGuid.json/guideBio/${params.id}`)
-          loader: ({params}) => fetch(`/tourGuid.json/guideBio/${params.id}`)
+          // loader: () => fetch(`https://roam-rift-server.vercel.app/services`)
         }
       ]
     },
     {
       path:'/dashboard',
-      element: <DashboardLayout></DashboardLayout>,
+      element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
       // errorElement:<ErrorPage></ErrorPage>,
       children:[
         {
           path:'add-package',
-          element: <AddPackage></AddPackage>
+          element: 
+            <PrivateRoute>
+              <TourGuideRoute>
+                <AddPackage></AddPackage>
+              </TourGuideRoute>
+            </PrivateRoute>
+        },
+        {
+          path:'my-listing',
+          element:
+            <PrivateRoute>
+              <TourGuideRoute>
+                <MyListing></MyListing>
+              </TourGuideRoute>
+            </PrivateRoute>
         },
         {
           path:'assigned-tours',
-          element: <MyAssignedTours></MyAssignedTours>
+          element: 
+            <PrivateRoute>
+              <TourGuideRoute>
+                <MyAssignedTours></MyAssignedTours>
+              </TourGuideRoute>
+            </PrivateRoute>
+        },
+        {
+          path: 'manage-users',
+          element:
+          <PrivateRoute>
+            <AdminRoute>
+              <ManageUsers></ManageUsers>
+            </AdminRoute>
+          </PrivateRoute>
+        },
+        {
+          path: '/dashboard',
+          element: 
+            <PrivateRoute>
+                <MyProfile></MyProfile>
+            </PrivateRoute>
+        },
+        {
+          path: 'my-bookings',
+          element:
+          <PrivateRoute>
+            <MyBookings></MyBookings>
+          </PrivateRoute>
+        },
+        {
+          path: 'my-wishlist',
+          element: 
+          <PrivateRoute>
+            <WishList></WishList>
+          </PrivateRoute>
         }
       ]
     }

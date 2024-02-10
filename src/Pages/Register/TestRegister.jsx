@@ -237,7 +237,7 @@ const Register = () => {
         })
         .catch(error =>{
             console.error(error);
-            swal("Success!", "Registration Successful!", "successful");
+            swal("Success!", "Registration Successful!", "success");
         })
     }
     const handleGoogleSignIn = () =>{

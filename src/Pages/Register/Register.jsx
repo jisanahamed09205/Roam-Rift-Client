@@ -40,6 +40,23 @@ const Register = () => {
             //2. create a new user
             const result =await createUser(email,password)
             console.log(result);
+            // a creating new user some condition must follow then other work
+            if(password.length < 6){
+                swal("Error!", "Password Should be at last 6 characters or longer !", "warning")
+                return ;
+            }
+            else if(!/[A-Z]/.test(password)){
+                swal("Error!", "Your password should have at least one upper case characters or longer!", "warning")
+                return;
+            }
+            else if(!/^(?=.*[~`!@#$%^&*()--+={}[\]|\\:;"'<>,.?/_₹]).*$/.test(password)){
+                swal("Error!", "Your password should at least one special characters or longer!", "warning")
+                return;
+            }
+            else if(!accepted){
+                swal("Error!", "Please Accept our terms and conditions!", "warning")
+                return ;
+            }
             //3. save username and profile photo
             await update(name, imageData?.data?.display_url)
             //4. save user data in database
@@ -48,7 +65,7 @@ const Register = () => {
             //5. get tokens
             await getToken(result?.user?.email)
             navigate(from,{replace:true});
-            swal("Success!", "Sign Up Successful!", "successful");
+            swal("Success!", "Sign Up Successful!", "success");
         }catch(err){
             console.log(err);
             swal("Error!", "Sign Up Error!", "error");
@@ -57,23 +74,6 @@ const Register = () => {
         //reset error
         setSignUpError('');
         setSignUpSuccess('');
-
-        if(password.length < 6){
-            swal("Error!", "Password Should be at last 6 characters or longer !", "warning")
-            return ;
-        }
-        else if(!/[A-Z]/.test(password)){
-            swal("Error!", "Your password should have at least one upper case characters or longer!", "warning")
-            return;
-        }
-        else if(!/^(?=.*[~`!@#$%^&*()--+={}[\]|\\:;"'<>,.?/_₹]).*$/.test(password)){
-            swal("Error!", "Your password should at least one special characters or longer!", "warning")
-            return;
-        }
-        else if(!accepted){
-            swal("Error!", "Please Accept our terms and conditions!", "warning")
-            return ;
-        }
     }
     const handleGoogleSignIn =async () =>{
         // 3.O
@@ -87,7 +87,7 @@ const Register = () => {
             //5. get tokens
             await getToken(result?.user?.email)
             navigate(from,{replace:true});
-            swal("Success!", "Sign Up Successful!", "successful");
+            swal("Success!", "Sign Up Successful!", "success");
         } catch (err) {
             console.log(err);
             swal("Error!", "Sign Up Error!", "error");

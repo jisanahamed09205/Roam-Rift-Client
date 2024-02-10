@@ -37,9 +37,9 @@ const PackagesPage = () => {
                                 </div>
                             </div>
                             <div className='font-semibold text-lg'>{tour.title}</div>
-                            <div className='font-light text-neutral-500'>
+                            {/* <div className='font-light text-neutral-500'>
                                 5 nights . June 19 - 26
-                            </div>
+                            </div> */}
                             <div className='flex flex-row items-center gap-1'>
                                 <div className='font-semibold'>$ {tour.price}</div>
                                 <div className='font-light'>{tour.tour_type}</div>

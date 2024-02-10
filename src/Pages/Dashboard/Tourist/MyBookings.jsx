@@ -1,26 +1,25 @@
-import { useQuery } from "@tanstack/react-query";
-import { Helmet } from "react-helmet-async";
-import useAuth from "../../../Hook/useAuth";
-import { getBookings, getTourGuidBookings } from "../../../api/bookings";
-import TableRow from "../../../Components/Dashboard/TableRow/TableRow";
+import { Helmet } from 'react-helmet-async'
+import useAuth from '../../../Hook/useAuth'
+import { useQuery } from '@tanstack/react-query'
+import { getBookings } from '../../../api/bookings'
+import TableRow from '../../../Components/Dashboard/TableRow/TableRow'
 
-const MyAssignedTours = () => {
+const MyBookings = () => {
 
     const { user, loading } = useAuth()
     const { data: bookings = [], isLoading, refetch } = useQuery({
         queryKey: ['bookings', user?.email],
         enabled: !loading,
-        // queryFn: async () => await getTourGuidBookings(user?.email)
         queryFn: async () => await getBookings(user?.email)
     })
-    console.log(bookings);
     if (isLoading) return <div className="flex justify-center items-center text-center min-h-[calc(100vh-370px)]">Loading...</div>
 
     return (
-        <div>
+        <>
             <Helmet>
-                <title>My Assigned Tours | Dashboard</title>
+                <title>My Bookings | Dashboard</title>
             </Helmet>
+
             <div className='container mx-auto px-4 sm:px-8'>
                 <div className='py-8'>
                     <div className='-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto'>
@@ -38,7 +37,7 @@ const MyAssignedTours = () => {
                                             scope='col'
                                             className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
                                         >
-                                            Tourist Info
+                                            Info
                                         </th>
                                         <th
                                             scope='col'
@@ -61,16 +60,16 @@ const MyAssignedTours = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {/* Table row data */}
-                                    {bookings && bookings.map((booking)=> <TableRow key={booking._id} booking={booking}></TableRow>)}
+                                    {/* Table Row Data */}
+                                    {bookings && bookings.map((booking=> <TableRow key={booking._id} booking={booking}></TableRow>))}
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    );
-};
+        </>
+    )
+}
 
-export default MyAssignedTours;
+export default MyBookings
