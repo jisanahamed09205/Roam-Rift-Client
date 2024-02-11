@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Adjust this value if needed */
+  height: 100vh;
 }
 
 .spinner {
@@ -11,7 +11,7 @@
   display: grid;
   color: #004dff;
   background: radial-gradient(farthest-side, currentColor calc(100% - 7px), #0000 calc(100% - 6px) 0);
-  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 15px), #000 calc(100% - 13px));
+  /* -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 15px), #000 calc(100% - 13px)); */
   border-radius: 50%;
   animation: spinner-sm4bhi 2s infinite linear;
 }
