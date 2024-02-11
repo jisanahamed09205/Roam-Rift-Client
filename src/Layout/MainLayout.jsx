@@ -16,6 +16,7 @@ const override = css`
 
 const MainLayout = () => {
   const [loading, setLoading] = useState(true);
+  const [showProgressBar, setShowProgressBar] = useState(false); // Add state to track whether to show the progress bar or not
 
   useEffect(() => {
     // Check if the flag indicating initial load is present in local storage
@@ -47,14 +48,30 @@ const MainLayout = () => {
       simulateInitialLoad();
     }
   }, []);
-  const { scrollYProgress } = useScroll(false);
+  const { scrollYProgress } = useScroll();
+
+  // When user scrolls, set showProgressBar to true
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowProgressBar(true);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
     <div>
-      <motion.div
-                className="progress-bar"
-                style={{ scaleX: scrollYProgress }}
-            />
+      {/* Conditionally render the progress bar based on showProgressBar state */}
+      {showProgressBar && (
+        <motion.div
+          className="progress-bar"
+          style={{ scaleX: scrollYProgress }}
+        />
+      )}
       {loading ? (
         // Show a loading spinner while the website is loading
         //className="flex justify-center items-center text-red-600 bg-green"
@@ -96,6 +113,79 @@ export default MainLayout;
 //             <Footer></Footer>
 //         </div>
 //     );
+// };
+
+// export default MainLayout;
+
+// import { Outlet } from "react-router-dom";
+// import Navbar from "../Pages/Shared/Navbar/Navbar";
+// import Footer from "../Pages/Shared/Footer/Footer";
+// import { motion, useScroll } from "framer-motion";
+// import { useEffect, useState } from "react";
+
+// const MainLayout = () => {
+//   const [loading, setLoading] = useState(true);
+//   const [showProgressBar, setShowProgressBar] = useState(false); // Add state to track whether to show the progress bar or not
+
+//   useEffect(() => {
+//     const initialLoadCompleted = localStorage.getItem('initialLoadCompleted');
+
+//     if (initialLoadCompleted) {
+//       setLoading(false);
+//     } else {
+//       const simulateInitialLoad = async () => {
+//         try {
+//           await new Promise(resolve => setTimeout(resolve, 5000));
+//           setLoading(false);
+//           localStorage.setItem('initialLoadCompleted', 'true');
+//         } catch (error) {
+//           console.error('Error during initial load:', error);
+//           setLoading(false);
+//         }
+//       };
+
+//       simulateInitialLoad();
+//     }
+//   }, []);
+
+//   const { scrollYProgress } = useScroll();
+
+//   useEffect(() => {
+//     const handleScroll = () => {
+//       setShowProgressBar(true);
+//     };
+
+//     window.addEventListener('scroll', handleScroll);
+
+//     return () => {
+//       window.removeEventListener('scroll', handleScroll);
+//     };
+//   }, []);
+
+//   return (
+//     <div>
+//       {showProgressBar && (
+//         <motion.div
+//           className="progress-bar"
+//           style={{ scaleX: scrollYProgress }}
+//         />
+//       )}
+//       {loading ? (
+//         <div className="flex justify-center items-center min-h-screen">
+//           <p className="font-medium text-4xl text-[#36D7B7]">Please Wait</p>
+//           <SyncLoader color="#36D7B7" size={10} loading={loading} css={override} />
+//         </div>
+//       ) : (
+//         <div>
+//           <Navbar />
+//           <div className="pt-[86px] min-h-[calc(100vh-280px)]">
+//             <Outlet />
+//           </div>
+//           <Footer />
+//         </div>
+//       )}
+//     </div>
+//   );
 // };
 
 // export default MainLayout;

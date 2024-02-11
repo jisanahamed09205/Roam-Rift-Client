@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import useAuth from "../../../Hook/useAuth";
 import { getBookings, getTourGuidBookings } from "../../../api/bookings";
 import TableRow from "../../../Components/Dashboard/TableRow/TableRow";
+import Loader from "../../../Shared/Loader/Loader";
 
 const MyAssignedTours = () => {
 
@@ -14,7 +15,7 @@ const MyAssignedTours = () => {
         queryFn: async () => await getBookings(user?.email)
     })
     console.log(bookings);
-    if (isLoading) return <div className="flex justify-center items-center text-center min-h-[calc(100vh-370px)]">Loading...</div>
+    if (isLoading) return <Loader/>
 
     return (
         <div>

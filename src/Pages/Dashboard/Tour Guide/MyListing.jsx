@@ -14,7 +14,7 @@ const MyListings = () => {
     return (
         <div className='bg-green-50 container'>
             <Helmet>
-                <title>My Assigned Tours | Dashboard</title>
+                <title>My Listing Tours | Dashboard</title>
             </Helmet>
 
             <div className=' mx-auto px-4 sm:px-8 '>

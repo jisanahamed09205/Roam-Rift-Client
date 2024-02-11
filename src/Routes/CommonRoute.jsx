@@ -2,7 +2,7 @@ import { Navigate } from "react-router-dom";
 import useRole from "../Hook/useRole";
 import Loader from "../Shared/Loader/Loader";
 
-const AdminRoute = ({children}) => {
+const CommonRoute = ({children}) => {
 
 
     // const [role,loading] = useRole()
@@ -17,11 +17,11 @@ const AdminRoute = ({children}) => {
         return <Loader/>
     }
 
-    if(role === 'Admin'){
+    if (role === 'Admin' || role === 'Tour Guide') {
         return children;
     }
 
     return <Navigate to='/dashboard'></Navigate>;
 };
 
-export default AdminRoute;
+export default CommonRoute;

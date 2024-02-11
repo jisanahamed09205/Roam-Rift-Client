@@ -24,6 +24,8 @@ import AdminRoute from "./AdminRoute";
 import ManageUsers from "../Pages/Dashboard/Admin/ManageUsers";
 import MyProfile from "../Pages/Dashboard/Common/MyProfile";
 import MyBookings from "../Pages/Dashboard/Tourist/MyBookings";
+import TouristRoute from "./TouristRoute";
+import CommonRoute from "./CommonRoute";
 
 const router = createBrowserRouter([
     {
@@ -96,18 +98,18 @@ const router = createBrowserRouter([
           path:'add-package',
           element: 
             <PrivateRoute>
-              <TourGuideRoute>
+              <CommonRoute>
                 <AddPackage></AddPackage>
-              </TourGuideRoute>
+              </CommonRoute>
             </PrivateRoute>
         },
         {
           path:'my-listing',
           element:
             <PrivateRoute>
-              <TourGuideRoute>
+              <CommonRoute>
                 <MyListing></MyListing>
-              </TourGuideRoute>
+              </CommonRoute>
             </PrivateRoute>
         },
         {
@@ -139,14 +141,18 @@ const router = createBrowserRouter([
           path: 'my-bookings',
           element:
           <PrivateRoute>
-            <MyBookings></MyBookings>
+            <TouristRoute>
+              <MyBookings></MyBookings>
+            </TouristRoute>
           </PrivateRoute>
         },
         {
           path: 'my-wishlist',
           element: 
           <PrivateRoute>
-            <WishList></WishList>
+            <TouristRoute>
+              <WishList></WishList>
+            </TouristRoute>
           </PrivateRoute>
         }
       ]

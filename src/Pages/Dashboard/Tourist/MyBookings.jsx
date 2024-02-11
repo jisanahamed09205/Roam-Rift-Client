@@ -3,6 +3,7 @@ import useAuth from '../../../Hook/useAuth'
 import { useQuery } from '@tanstack/react-query'
 import { getBookings } from '../../../api/bookings'
 import TableRow from '../../../Components/Dashboard/TableRow/TableRow'
+import Loader from '../../../Shared/Loader/Loader'
 
 const MyBookings = () => {
 
@@ -12,7 +13,7 @@ const MyBookings = () => {
         enabled: !loading,
         queryFn: async () => await getBookings(user?.email)
     })
-    if (isLoading) return <div className="flex justify-center items-center text-center min-h-[calc(100vh-370px)]">Loading...</div>
+    if (isLoading) return <Loader/>
 
     return (
         <>

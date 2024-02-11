@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import Loader from "../../../../Shared/Loader/Loader";
 
 const PackagesPage = () => {
     const { tourType } = useParams();
@@ -20,7 +21,7 @@ const PackagesPage = () => {
         });
     }, [tourType]);
 
-    if(loading) return <div className="flex justify-center items-center text-center min-h-[calc(100vh-370px)]">Loading...</div>
+    if(loading) return <Loader/>
 
     return (
         <div>

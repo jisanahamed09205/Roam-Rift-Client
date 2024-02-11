@@ -5,6 +5,7 @@ import Header from "../../Components/PackDetails/Header";
 import PackInfo from "./PackInfo";
 import MeetOur from "../Home/Tourism&TravelGuideSection/MeetOur/MeetOur";
 import BookingModal from "../../Components/Modal/BookingModal";
+import Loader from "../../Shared/Loader/Loader";
 
 const PackageDetail = () => {
 
@@ -28,7 +29,7 @@ const PackageDetail = () => {
             });
     }, [id]);
 
-    if(loading) return <div className="flex justify-center items-center text-center min-h-[calc(100vh-370px)]">Loading...</div>
+    if(loading) return <Loader/>
 
 
     // const handlePurchase=(e)=>{
